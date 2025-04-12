@@ -19,7 +19,7 @@
     nixosConfigurations = {
       bael = let
         username = "greed";
-        specialArgs = { inherit username; };
+        specialArgs = { inherit username inputs; };
       in nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         system = "x86_64-linux";
@@ -34,8 +34,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = inputs // specialArgs;
-            home-manager.users.${username} =
-              import ./users/${username}/home.nix;
+            home-manager.users.${username} = ./users/${username}/home.nix;
           }
         ];
 

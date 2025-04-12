@@ -1,4 +1,4 @@
-{ lib, pkgs, config, inputs, ... }: {
+{ lib, pkgs, config, system, ... }: {
   home.packages = with pkgs; [
     # Aesthetic
     nitch
@@ -63,7 +63,7 @@
 
     #Applications
     vesktop
-    inputs.zen-browser.packages."${config.system}".beta
+    inputs.zen-browser.packages."${pkgs.system}".beta
 
   ];
 
