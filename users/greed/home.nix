@@ -5,6 +5,7 @@
     ../../home/programs
     ../../home/niri
     ../../home/terminal
+    ../../home/misc/swaync.nix
   ];
 
   programs.git = {
