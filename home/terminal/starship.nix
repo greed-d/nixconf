@@ -72,12 +72,12 @@
       };
 
       git_branch = {
-        # format = "[[\\\\( $symbol$branch](rosewater) | ](text)";
+        format = "[[\\( $symbol$branch](rosewater) | ](text)";
         symbol = " ";
       };
 
       git_status = {
-        # format = ''$all_status$ahead_behind)"'';
+        format = "$all_status$ahead_behind\\)";
         conflicted = "=";
         ahead = "[⇡\${count} ](green)";
         behind = "⇣\${count} ";
