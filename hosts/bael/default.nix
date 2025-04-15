@@ -18,7 +18,16 @@
 
   networking.hostName = "bael"; # Define your hostname.
 
-  services.keyd = { enable = true; };
+  services.keyd = {
+    enable = true;
+
+    # keyboards = {
+    #   "default" = {
+    #     ids = [ "*" ];
+    #     settings = { main = { capslock = "overload(shift, esc)"; }; };
+    #   };
+    # };
+  };
   # Enable networking
   networking.networkmanager.enable = true;
 }
