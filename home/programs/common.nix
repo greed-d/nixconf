@@ -71,29 +71,21 @@
     inputs.zen-browser.packages."${pkgs.system}".beta
     element-desktop
 
-    steam
-
     gcc
     deno
     nodejs
     rustc
     cargo
-    nixfmt-rfc-style
 
-    firefox
     sioyek
 
     glib
-    acpilight
     wayland
     direnv
-    gnome-software
 
     lazygit
     nwg-look
     bibata-cursors
-    grimblast
-    swappy
     webkitgtk
     tmux
 
@@ -104,6 +96,8 @@
     gnome-keyring
     telegram-desktop
     qbittorrent
+    youtube-music
+    swaynotificationcenter
 
   ];
 

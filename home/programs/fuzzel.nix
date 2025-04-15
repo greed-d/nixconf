@@ -4,7 +4,7 @@
     settings = {
       main = {
         anchor = "left";
-        prompt = "       ";
+        prompt = ">> ";
         layer = "overlay";
         x-margin = 10;
         y-margin = 10;
