@@ -3,6 +3,7 @@
     isNormalUser = true;
     description = username;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "disk" ];
+    shell = pkgs.fish;
 
   };
 
@@ -15,14 +16,17 @@
     options = lib.mkDefault "--delete-older-than 7d";
   };
 
+  programs.fish = { enable = true; };
+  programs.niri = { enable = true; };
   fonts = {
     packages = with pkgs; [
       material-design-icons
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
+      lexend
       noto-fonts-emoji
-
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMonon" ]; })
+      nerd-fonts.jetbrains-mono
+      adwaita-fonts
     ];
 
     enableDefaultPackages = false;
@@ -39,7 +43,6 @@
   programs = {
     dconf.enable = true;
     firefox.enable = true;
-    fish.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -49,9 +52,14 @@
     neovim
     ghostty
     wirelesstools
+    wl-clipboard
+    playerctl
+    killall
+    polkit_gnome
+    networkmanagerapplet
   ];
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables = { EDITOR = "nvim"; };
 
   networking.firewall.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -66,7 +74,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
