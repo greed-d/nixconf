@@ -1,9 +1,10 @@
-{ lib, pkgs, config, system, ... }: {
+{ lib, pkgs, config, inputs, ... }: {
   home.packages = with pkgs; [
     # Aesthetic
     nitch
     cava
     fastfetch
+    gparted
 
     # archives
     zip
@@ -16,7 +17,11 @@
     jq # A lightweight and flexible command-line JSON processor
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
-    zoxide
+    fuzzel
+    swayosd
+    waybar
+    wtype
+    cliphist
 
     # networking tools
     mtr # A network diagnostic tool
@@ -64,7 +69,48 @@
     #Applications
     vesktop
     inputs.zen-browser.packages."${pkgs.system}".beta
+    element-desktop
+
+    steam
+
+    gcc
+    deno
+    nodejs
+    rustc
+    cargo
+    nixfmt-rfc-style
+
+    firefox
+    sioyek
+
+    glib
+    acpilight
+    wayland
+    direnv
+    gnome-software
+
+    lazygit
+    nwg-look
+    bibata-cursors
+    grimblast
+    swappy
+    webkitgtk
+    tmux
+
+    cliphist
+    wf-recorder
+    obsidian
+    vesktop
+    gnome-keyring
+    telegram-desktop
+    qbittorrent
 
   ];
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    # enableFishIntegratoin = true;
+  };
 
 }
