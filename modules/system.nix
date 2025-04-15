@@ -57,6 +57,7 @@
     killall
     polkit_gnome
     networkmanagerapplet
+    sddm-astronaut
   ];
 
   environment.variables = { EDITOR = "nvim"; };
@@ -75,7 +76,11 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = false;
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "${pkgs.sddm-astronaut}";
+  };
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
