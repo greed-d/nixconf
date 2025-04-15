@@ -21,6 +21,19 @@ in {
         (makeCommand "swww-daemon")
         (makeCommand "swayosd-server")
       ];
+      workspaces = {
+        "1" = { };
+        "2" = { };
+        "3" = { };
+        "4" = { };
+        "5" = { };
+        "6" = { };
+        "7" = { };
+        "8" = { };
+        "8" = { };
+        "9" = { };
+        "0" = { };
+      };
       input = {
         keyboard = { xkb = { }; };
         touchpad = {
@@ -70,8 +83,6 @@ in {
         focus-ring = {
           enable = true;
           width = 2;
-          # active-color = "#cba6f7";
-          # inactive-color = "#45475A";
         };
 
         border = { enable = false; };

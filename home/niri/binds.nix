@@ -17,8 +17,8 @@
 
       # Screenshot
       "Print".action.screenshot-screen = { write-to-disk = true; };
-      # "Mod+Alt+S".action = screenshot-window; # This errors
-      "Mod+Shift+S".action.screenshot = [ ];
+      "Mod+Alt+S".action.screenshot-window = { };
+      "Mod+Shift+S".action.screenshot = { };
 
       # Misc Stuff
       "Mod+Shift+Slash".action = show-hotkey-overlay;
@@ -114,6 +114,8 @@
 
       "Mod+Minus".action.set-column-width = "-10%";
       "Mod+Equal".action.set-column-width = "+10%";
+      "Mod+Comma".action.consume-window-into-column = { };
+      "Mod+Period".action.expel-window-from-column = { };
 
       "Mod+BracketLeft".action.consume-or-expel-window-left = [ ];
       "Mod+BracketRight".action.consume-or-expel-window-right = [ ];
@@ -123,5 +125,7 @@
       "Mod+Alt+J".action.reset-window-height = [ ];
       "Mod+backslash".action.maximize-column = [ ];
       "Mod+F".action.fullscreen-window = [ ];
+      "Mod+S".action.toggle-window-floating = [ ];
+      "Mod+Shift+T".action.toggle-column-tabbed-display = [ ];
     };
 }

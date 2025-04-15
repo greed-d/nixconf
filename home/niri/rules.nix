@@ -74,12 +74,36 @@ let
         { app-id = "^(zen|firefox|chromium-browser|chrome-.*|zen-.*)$"; }
         { app-id = "^(xdg-desktop-portal-gtk)$"; }
       ];
-      scroll-factor = 1;
+      scroll-factor = 0.7;
+    }
+    {
+      matches = [{ app-id = "^(zen|zen-.*)$"; }];
+      open-on-workspace = "1";
+    }
+    {
+      matches = [{ app-id = "^(Element)$"; }];
+      open-on-workspace = "3";
+    }
+    {
+      matches = [{ app-id = "^(org.gnome.Nautilus|thunar)$"; }];
+      open-on-workspace = "6";
+    }
+    {
+      matches = [{ app-id = "^(sioyek|zathura|obsidian)$"; }];
+      open-on-workspace = "7";
+    }
+    {
+      matches = [{ app-id = "^(spotify|youtueb-music)$"; }];
+      open-on-workspace = "8";
+    }
+    {
+      matches = [{ app-id = "^(vesktop|vesktop(.*))$"; }];
+      open-on-workspace = "9";
     }
     {
       matches = [{
         app-id =
-          "^(zen|firefox|chromium-browser|edge|chrome-.*|zen-.*|obsidian|org.telegram.desktop|vesktop)$";
+          "^(zen|firefox|chromium-browser|edge|chrome-.*|zen-.*|obsidian|org.telegram.desktop|vesktop|Element|org.gnome.Nautilus)$";
       }];
       open-maximized = true;
     }
