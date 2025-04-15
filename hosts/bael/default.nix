@@ -18,6 +18,7 @@
 
   networking.hostName = "bael"; # Define your hostname.
 
+  services.keyd = { enable = true; };
   # Enable networking
   networking.networkmanager.enable = true;
 }
