@@ -40,10 +40,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = { url = "github:sodiboo/niri-flake"; };
-
+    waybar = { url = "github:hansp27/Waybar"; };
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nvf, ... }: {
+    packages.x86_64-linux.my-neovim = (nvf.lib.neovimConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        # IE: ./nvf_module.nix
+        ./neovim
+      ];
+    }).neovim;
+
     nixosConfigurations = {
       bael = let
         username = "greed";
