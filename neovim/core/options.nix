@@ -1,10 +1,11 @@
-{ ... } : {
+{...}: {
   vim = {
     useSystemClipboard = true;
     options = {
       mouse = "a";
       showmode = false;
       shiftwidth = 2;
+      winborder = "rounded";
       tabstop = 2;
       smartindent = true;
       expandtab = true;
