@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     #Enable starship
     ./starship.nix # This isn't working
@@ -7,5 +7,6 @@
     ./bash.nix
     ./fish.nix
     ./zoxide.nix
+    ./tmux.nix
   ];
 }
