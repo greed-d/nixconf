@@ -20,7 +20,7 @@
     };
     iconTheme = {
       package = "${pkgs.callPackage ./suru-gtk.nix {inherit pkgs;}}";
-      name = "Suru++";
+      name = "eSuru++";
     };
   };
 }
