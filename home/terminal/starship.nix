@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
@@ -9,24 +9,23 @@
 
       # Using indented strings ''...'' for formats to preserve $vars literally
       # for Starship, preventing Nix interpolation.
-      format =
-        "$battery$directory$git_branch$git_status$git_state$git_state$line_break$character";
+      format = "$battery$directory$git_branch$git_status$git_state$git_state$line_break$character";
       right_format = "$python $cmd_duration";
 
       add_newline = true;
 
       # Language configurations grouped as attribute sets
-      c = { disabled = true; };
-      cmake = { disabled = true; };
-      haskell = { disabled = true; };
-      ruby = { disabled = true; };
-      rust = { disabled = true; };
-      perl = { disabled = true; };
-      package = { disabled = true; };
-      lua = { disabled = true; };
-      nodejs = { disabled = true; };
-      java = { disabled = true; };
-      golang = { disabled = true; };
+      c = {disabled = true;};
+      cmake = {disabled = true;};
+      haskell = {disabled = true;};
+      ruby = {disabled = true;};
+      rust = {disabled = true;};
+      perl = {disabled = true;};
+      package = {disabled = true;};
+      lua = {disabled = true;};
+      nodejs = {disabled = true;};
+      java = {disabled = true;};
+      golang = {disabled = true;};
 
       palette = "catppuccin_mocha";
 
@@ -61,9 +60,9 @@
         };
       };
 
-      line_break = { disabled = false; };
+      line_break = {disabled = false;};
 
-      directory = { fish_style_pwd_dir_length = 1; };
+      directory = {fish_style_pwd_dir_length = 1;};
 
       character = {
         success_symbol = "[➜](green bold)";
