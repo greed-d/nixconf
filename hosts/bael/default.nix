@@ -1,17 +1,19 @@
-{ configs, pkgs, ... }:
-
 {
+  configs,
+  pkgs,
+  ...
+}: {
   imports = [
     # Add hw conf
     ./hardware-configuration.nix
 
     # add system info
     ../../modules/system.nix
-
+    ../../modules/sddm.nix
   ];
 
   boot.loader = {
-    efi = { canTouchEfiVariables = true; };
+    efi = {canTouchEfiVariables = true;};
     systemd-boot.enable = true;
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -21,12 +23,12 @@
   services.keyd = {
     enable = true;
 
-    # keyboards = {
-    #   "default" = {
-    #     ids = [ "*" ];
-    #     settings = { main = { capslock = "overload(shift, esc)"; }; };
-    #   };
-    # };
+    keyboards = {
+      "default" = {
+        ids = ["*"];
+        settings = {main = {capslock = "overload(shift, esc)";};};
+      };
+    };
   };
   # Enable networking
   networking.networkmanager.enable = true;

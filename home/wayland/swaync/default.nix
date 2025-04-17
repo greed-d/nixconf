@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./style.nix ]
+{...}: {
+  imports = [./style.nix];
   services.swaync = {
     enable = true;
     settings = {
@@ -24,12 +24,12 @@
       notification-body-image-width = 200;
       notification-icon-size = 40;
       notification-inline-replies = true;
-      notification-visibility = { };
+      notification-visibility = {};
       notification-window-width = 400;
       positionX = "right";
       positionY = "top";
       script-fail-notify = true;
-      scripts = { };
+      scripts = {};
       timeout = 10;
       timeout-critical = 0;
       timeout-low = 5;
@@ -87,7 +87,7 @@
         };
       };
 
-      widgets = [ "title" "notifications" "buttons-grid" "mpris" "volume" ];
+      widgets = ["title" "notifications" "buttons-grid" "mpris" "volume"];
     };
   };
 }

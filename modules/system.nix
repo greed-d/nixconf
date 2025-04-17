@@ -1,14 +1,18 @@
-{ pkgs, lib, username, ... }: {
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}: {
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "disk" ];
+    extraGroups = ["networkmanager" "wheel" "video" "audio" "disk"];
     shell = pkgs.fish;
-
   };
 
-  nix.settings.trusted-users = [ username ];
-  nix.settings = { experimental-features = [ "nix-command" "flakes" ]; };
+  nix.settings.trusted-users = [username];
+  nix.settings = {experimental-features = ["nix-command" "flakes"];};
   # Garbage Collection
   nix.gc = {
     automatic = lib.mkDefault true;
@@ -16,8 +20,8 @@
     options = lib.mkDefault "--delete-older-than 7d";
   };
 
-  programs.fish = { enable = true; };
-  programs.niri = { enable = true; };
+  programs.fish = {enable = true;};
+  programs.niri = {enable = true;};
   fonts = {
     packages = with pkgs; [
       material-design-icons
@@ -32,12 +36,11 @@
     enableDefaultPackages = false;
 
     fontconfig.defaultFonts = {
-      serif = [ "Noto Serif" "Noto Color Emoji" ];
-      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
-      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
-      emoji = [ "Noto Color Emoji" ];
+      serif = ["Noto Serif" "Noto Color Emoji"];
+      sansSerif = ["Noto Sans" "Noto Color Emoji"];
+      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+      emoji = ["Noto Color Emoji"];
     };
-
   };
 
   programs = {
@@ -49,7 +52,7 @@
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    neovim
+    # neovim
     ghostty
     wirelesstools
     wl-clipboard
@@ -57,10 +60,10 @@
     killall
     polkit_gnome
     networkmanagerapplet
-    sddm-astronaut
+    libnotify
   ];
 
-  environment.variables = { EDITOR = "nvim"; };
+  environment.variables = {EDITOR = "nvim";};
 
   networking.firewall.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -77,11 +80,13 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = false;
   # services.displayManager.sddm.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    theme = "${pkgs.sddm-astronaut}";
-  };
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   package = pkgs.kdePackages.sddm;
+  #   extraPackages = [ sddm-astronaut ];
+  #   theme = "sddm-astronaut-theme";
+  # };
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -109,5 +114,4 @@
       #media-session.enable = true;
     };
   };
-
 }

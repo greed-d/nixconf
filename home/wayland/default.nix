@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./swaync.nix ./waybar ]; }
+{...}: {imports = [./swaync ./waybar];}

@@ -1,5 +1,5 @@
-{ ... }: {
-  programs.swaync = {
+{...}: {
+  services.swaync = {
     style = ''
       * {
         font-size: 14px;
@@ -32,7 +32,7 @@
         border: unset;
         border-radius: 1.159rem;
         -gtk-outline-radius: 1.159rem;
-        
+
       }
 
       .floating-notifications.background .notification-background .notification .notification-content,
@@ -149,7 +149,7 @@
         border-radius: 9999px;
         -gtk-outline-radius: 9999px;
         min-width: 0.545rem;
-        background-color: transparent;  
+        background-color: transparent;
       }
 
       .control-center slider {
@@ -285,9 +285,9 @@
       .widget-mpris {
         background-color: rgba(28, 28, 34, 0.35);
         padding: 8px;
-        margin: 8px;  
+        margin: 8px;
         border-radius: 1.159rem;
-        -gtk-outline-radius: 1.159rem;  
+        -gtk-outline-radius: 1.159rem;
       }
 
       .widget-mpris-player {

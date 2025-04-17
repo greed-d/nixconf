@@ -1,6 +1,5 @@
-{ ... }: {
+{...}: {
   programs.waybar = {
-    package = myWaybarFromPR;
     style = ''
 
       * {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   waybarPrSource = pkgs.fetchFromGitHub {
     owner = "Alexays";
     repo = "Waybar";
@@ -8,9 +7,9 @@ let
   };
 
   myWaybarFromPR =
-    pkgs.waybar.overrideAttrs (oldAttrs: { src = waybarPrSource; });
+    pkgs.waybar.overrideAttrs (oldAttrs: {src = waybarPrSource;});
 in {
-  imports = [ ./style.nix ];
+  imports = [./style.nix];
   programs.waybar = {
     package = myWaybarFromPR;
     enable = true;
@@ -36,7 +35,7 @@ in {
           "custom/update"
           "custom/sep"
         ];
-        modules-center = [ "niri/workspaces" ];
+        modules-center = ["niri/workspaces"];
         modules-right = [
           "custom/sep"
           "pulseaudio"
@@ -61,7 +60,7 @@ in {
         };
         "backlight" = {
           format = "{icon}  {percent}%";
-          format-icons = [ "" "" "" "" "" "" "" "" "" ];
+          format-icons = ["" "" "" "" "" "" "" "" ""];
           tooltip = false;
           on-scroll-up = "swayosd-client --brightness +5";
           on-scroll-down = "swayosd-client --brightness -5";
@@ -98,7 +97,7 @@ in {
           format-plugged = "  {capacity}%";
           format-full = "{icon}   Full";
           format-alt = "{icon} {time}";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = ["" "" "" "" ""];
           format-time = "{H}h {M}min";
           tooltip = true;
           tooltip-format = " {timeTo} {power}w ";
@@ -118,7 +117,7 @@ in {
             firefox = " ";
             chromium = "  ";
           };
-          status-icons = { paused = " "; };
+          status-icons = {paused = " ";};
         };
 
         "niri/workspaces" = {
@@ -153,21 +152,15 @@ in {
 
             "com.mitchellh.ghostty" = "   Ghostty";
 
-            "(.*)Mozilla Firefox" =
-              "<span foreground='#ed8796'>󰈹 </span> Firefox";
-            "(.*) — Mozilla Firefox" =
-              "<span foreground='#ed8796'>󰈹 </span> $1";
+            "(.*)Mozilla Firefox" = "<span foreground='#ed8796'>󰈹 </span> Firefox";
+            "(.*) — Mozilla Firefox" = "<span foreground='#ed8796'>󰈹 </span> $1";
 
-            "(.*)Zen Browser" =
-              "<span foreground='#f5a97f'>󰺕  </span> Zen Browser";
-            "(.*) — Zen Browser" =
-              "<span foreground='#f5a97f'>󰺕  </span> Zen Browser";
+            "(.*)Zen Browser" = "<span foreground='#f5a97f'>󰺕  </span> Zen Browser";
+            "(.*) — Zen Browser" = "<span foreground='#f5a97f'>󰺕  </span> Zen Browser";
             "zen-beta" = "<span foreground='#f5a97f'>󰺕  </span> Zen Browser";
 
-            "(.*) - Visual Studio Code" =
-              "<span foreground='#8aadf4'>󰨞  </span> $1";
-            "(.*)Visual Studio Code" =
-              "<span foreground='#8aadf4'>󰨞  </span> Visual Studio Code";
+            "(.*) - Visual Studio Code" = "<span foreground='#8aadf4'>󰨞  </span> $1";
+            "(.*)Visual Studio Code" = "<span foreground='#8aadf4'>󰨞  </span> Visual Studio Code";
 
             "nvim" = "<span foreground='#a6da95'>  </span> Neovim";
             "nvim (.*)" = "<span foreground='#a6da95'>  </span> Neovim";
@@ -179,21 +172,17 @@ in {
 
             #MEdia
             "(.*)Spotify" = "<span foreground='#a6da95'>  </span> Spotify";
-            "(.*)Spotify Premium" =
-              "<span foreground='#a6da95'>  </span> Spotify Premium";
+            "(.*)Spotify Premium" = "<span foreground='#a6da95'>  </span> Spotify Premium";
 
-            "VLC media player" =
-              "<span foreground='#f5a97f'>󰕼  </span> VLC Media Player";
-            "(.*) - VLC media player" =
-              "<span foreground='#f5a97f'>󰕼  </span> $1";
+            "VLC media player" = "<span foreground='#f5a97f'>󰕼  </span> VLC Media Player";
+            "(.*) - VLC media player" = "<span foreground='#f5a97f'>󰕼  </span> $1";
 
             "(.*) - mpv" = "<span foreground='#c6a0f6'>  </span> mpv";
             "mpv" = "<span foreground='#c6a0f6'>  </span> mpv";
 
             "thunar" = "<span foreground='#8aadf4'>󰉋  </span> Thunar";
             "obsidian" = "<span foreground='#5b4965'>󱞁  </span> Obsidian";
-            "com.github.th_ch.youtube_music" =
-              "<span foreground='#FF0000'>  </span> YT Music";
+            "com.github.th_ch.youtube_music" = "<span foreground='#FF0000'>  </span> YT Music";
 
             "qView" = "  qView";
 
@@ -209,13 +198,11 @@ in {
             "(.*)Discord(.*)" = "<span foreground='#8aadf4'>  </span> Discord";
 
             "Telegram (.*)" = "<span foreground='#24A1DE'>  </span> Telegram";
-            "org.telegram.desktop" =
-              "<span foreground='#24A1DE'>  </span> Telegram";
+            "org.telegram.desktop" = "<span foreground='#24A1DE'>  </span> Telegram";
 
             # Documents
 
-            "ONLYOFFICE Desktop Editors" =
-              "<span foreground='#ed8796'> </span> OnlyOffice Desktop";
+            "ONLYOFFICE Desktop Editors" = "<span foreground='#ed8796'> </span> OnlyOffice Desktop";
 
             "(.*).docx" = "<span foreground='#8aadf4'> </span> $1.docx";
             "(.*).xlsx" = "<span foreground='#a6da95'> </span> $1.xlsx";
@@ -257,7 +244,7 @@ in {
               today = "<span color='#f38ba8'><b>{}</b></span>";
             };
           };
-          actions = { on-click-right = "mode"; };
+          actions = {on-click-right = "mode";};
           min-length = 8;
           max-length = 28;
         };
@@ -272,7 +259,7 @@ in {
             phone = "";
             portable = "";
             car = "";
-            default = [ " " " " " " ];
+            default = [" " " " " "];
           };
           on-click-middle = "pavucontrol";
           on-click = "swayosd-client --output-volume mute-toggle";
