@@ -16,5 +16,8 @@
       listImplementations = "gI";
       listReferences = "gr";
     };
+    diagnostics.config = {
+      virtual_text = true;
+    };
   };
 }
