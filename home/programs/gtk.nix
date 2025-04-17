@@ -1,4 +1,9 @@
-{ lib, pkgs, configs, ... }: {
+{
+  lib,
+  pkgs,
+  configs,
+  ...
+}: {
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
@@ -14,9 +19,8 @@
       name = "Tokyonight-Dark";
     };
     iconTheme = {
-      package = pkgs.tokyonight-gtk-theme;
-      name = "Tokyonight-Dark";
+      package = "${pkgs.callPackage ./suru-gtk.nix {inherit pkgs;}}";
+      name = "Suru++";
     };
-
   };
 }
