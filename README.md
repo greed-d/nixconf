@@ -1,6 +1,7 @@
 # Todo
- - [ ] Fix waybar to pr #4001
- - [ ] Recover the fire wallpaper
- - [ ] tmux config
- - [ ] waybar config
- - [ ] And many more
+ - [x] Fix waybar to pr #4001
+ - [x] Recover the fire wallpaper
+ - [x] tmux config
+ - [x] waybar config
+ - [ ] Setup NVF
+ 
