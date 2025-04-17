@@ -1,1 +1,1 @@
-{ imports = [ ./common.nix ./gtk.nix ./fuzzel.nix ]; }
+{imports = [./common.nix ./gtk.nix ./fuzzel.nix ./editor.nix];}
