@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./config.nix ./picker.nix];
+  imports = [./config.nix ./picker.nix ];
 }
