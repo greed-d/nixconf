@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.niri = {
     settings = {
       animations = {
@@ -15,7 +15,6 @@
             duration-ms = 150;
             curve = "linear";
           };
-
         };
         shaders = {
           window-open = ''
@@ -50,7 +49,6 @@
               return shrinking_circle(coords_geo, size_geo);
             }'';
         };
-
       };
     };
   };

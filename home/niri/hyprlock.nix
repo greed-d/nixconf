@@ -1,195 +1,106 @@
-{ ... }: {
+{...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
-      # GENERAL SETTINGS
-      general = {
-        no_fade_in = true;
-        grace = 1;
-        disable_loading_bar = false;
-        hide_cursor = true;
-        ignore_empty_input = true;
-        text_trim = true;
-      };
-
-      # BACKGROUND SETTINGS
-      background = [{
-        monitor = "";
-        path = "screenshot"; # or a full path fetched via fetchurl if needed
-        blur_passes = 2; # $blur = 2 from your config
-        contrast = 0.8916;
-        brightness = 0.7172;
-        vibrancy = 0.1696;
-        vibrancy_darkness = 0;
-      }];
-
-      # PROFILE PICTURE (IMAGE) SETTINGS
-      image = [{
-        monitor = "";
-        path = "/home/greed/.face"; # make sure this is a global/system path
-        size = 90;
-        opacity = 0.25;
-        shadow_pass = 2; # $shadow-pass = 2
-        shadow_size = 3; # $shadow-size = 3
-        shadow_color = "rgb(0,0,0)"; # $shadow-color
-        shadow_boost = 1.2; # $shadow-boost
-        rounding = 12; # $rounding = 12; negative for circle
-        border_size = 4;
-        rotate = 0;
-        position = "20, -35";
-        halign = "left";
-        valign = "top";
-        zindex = 1;
-      }];
-
-      # LABELS (for user info, weather, time, etc.)
-      label = [
+      # BACKGROUND block becomes a list (in case you ever want multiple backgrounds)
+      background = [
         {
           monitor = "";
-          text = ''
-            cmd[update:1000] echo -e "greed\n󰁥 $(uname -n)\n\n$(uname -r)\nPackages: $(pacman -Q | wc -l) pacman"'';
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          color = "rgba(255,255,255,1)"; # using $fg0 = rgba(255,255,255,1)
-          font_size = 11;
-          font_family = "Google Sans Bold"; # $font-text
-          position = "170, -35";
-          halign = "left";
-          valign = "top";
-        }
-        {
-          monitor = "";
-          text =
-            ''cmd[update:1000] echo "$(bash /etc/hyprlock/weatherinfo.sh)"'';
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          color = "rgba(255,255,255,1)";
-          font_size = 11;
-          font_family = "Google Sans Bold";
-          position = "0, -20";
-          halign = "center";
-          valign = "top";
-        }
-        {
-          monitor = "";
-          text = ''cmd[update:1000] echo -e "$(date +\"%H\")"'';
-          color = "rgba(255,255,255,1)"; # $clock-color
-          shadow_pass = 2; # Using same shadow as above
-          shadow_size = 3;
-          shadow_color = "rgb(0,0,0)";
-          shadow_boost = 1.2;
-          font_size = 150;
-          font_family = "PP Neue Machina Ultra-Bold"; # $font-display
-          position = "0, -155";
-          halign = "center";
-          valign = "top";
+          path = "screenshot";
+          blur_passes = 2;
+          contrast = 0.9;
+          brightness = 0.9;
+          vibrancy = 0.1696;
+          vibrancy_darkness = 0.0;
         }
       ];
 
-      # INPUT FIELD SETTINGS
-      "input-field" = [{
+      # GENERAL block as a record
+      general = {
+        no_fade_in = false;
+        grace = 0;
+        disable_loading_bar = false;
+        ignore_empty_input = true;
+      };
+
+      # INPUT FIELD block – note the key name is quoted because it includes a hyphen
+      "input-field" = {
         monitor = "";
-        size = "275, 55"; # width, height as a string
-        rounding = 12;
-        outline_thickness = 2; # $weight = 2
-        outer_color = "rgba(255, 255, 255, 0.15)"; # $border-color
-        dots_size = 0.1;
+        size = "250, 60"; # using a string to represent the two numbers
+        outline_thickness = 2;
+        dots_size = 0.2;
         dots_spacing = 0.2;
         dots_center = true;
-        inner_color = "rgba(0, 0, 0, 0.5)"; # $inner-color
-        font_color = "rgba(255,255,255,1)"; # $fg0
+        outer_color = "rgba(0, 0, 0, 0)";
+        inner_color = "rgba(0, 0, 0, 0.5)";
+        font_color = "rgb(200, 200, 200)";
         fade_on_empty = false;
-        font_family = "Google Sans Bold";
-        placeholder_text =
-          "<span>󰢏  greed</span>"; # using your alias in place of $USER
+        font_family = "JetBrains Mono Nerd Font Mono";
+        placeholder_text = ''<i><span foreground="##cdd6f4">Password?....</span></i>'';
         hide_input = false;
-        position = "0, -240";
-        halign = "center";
-        valign = "center";
-        zindex = 10;
-      }];
-
-      # SHAPES (e.g. battery bg, network bg, bluetooth bg, media bg)
-      shape = [
-        {
-          # Battery BG shape
-          monitor = "";
-          size = "90, 40";
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          color = "rgba(255,255,255,1)"; # $shape-col0 from your config
-          rounding = -1;
-          border_size = null;
-          border_color = null;
-          position = "-20, 20";
-          halign = "right";
-          valign = "bottom";
-          zindex = 1;
-        }
-        {
-          # Network BG shape
-          monitor = "";
-          size = "150, 40";
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          color = "rgba(255,255,255,1)"; # $shape-col0
-          rounding = -1;
-          border_size = null;
-          border_color = null;
-          position = "20, 20";
-          halign = "left";
-          valign = "bottom";
-          zindex = 1;
-        }
-        {
-          # Bluetooth BG shape
-          monitor = "";
-          size = "150, 40";
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          color = "rgba(255,255,255,1)"; # $shape-col0
-          rounding = -1;
-          border_size = null;
-          border_color = null;
-          position = "20, 75";
-          halign = "left";
-          valign = "bottom";
-          zindex = 1;
-        }
-        {
-          # Media BG shape
-          monitor = "";
-          size = "550, 120";
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          color = "rgba(0, 0, 0, 0.25)"; # $shape-col1
-          rounding = 12;
-          border_size = null;
-          border_color = null;
-          position = "0, 70";
-          halign = "center";
-          valign = "bottom";
-          zindex = 1;
-        }
-      ];
-
-      # Additional configuration entries (such as extra labels for player info, date, etc.)
-      # follow the same structure. For instance, to add a label for the date:
-      dateLabel = {
-        monitor = "eDP-1";
-        text =
-          "cmd[update:1000] bash -c 'day=$(date +%d); case \"$day\" in 1) suffix=\"st\";; 2) suffix=\"nd\";; 3) suffix=\"rd\";; *) suffix=\"th\";; esac; echo -e \"$(date +\\\"%B %e\\\")$day$suffix, $(date +%Y)\"'";
-        shadow_passes = 1;
-        shadow_boost = 0.5;
-        color = "rgba(255,255,255,1)";
-        font_size = 14;
-        font_family = "Google Sans Bold";
-        position = "0, -115";
+        position = "0, -160";
         halign = "center";
         valign = "center";
       };
 
-      # You can then add this entry into a list or merge it with the "label" key if desired.
+      # LABEL blocks are collected into a list. Each record here corresponds to one label.
+      label = [
+        {
+          # TIME label
+          monitor = "";
+          text = ''cmd[update:1000] echo "$(date +"%-I:%M%p")"'';
+          color = "$foreground"; # assuming $foreground is provided by your environment
+          font_size = 90;
+          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+          position = "0, -475";
+          halign = "center";
+          valign = "top";
+        }
+        {
+          # USER label
+          monitor = "";
+          text = "Hi there, $USER";
+          color = "$foreground";
+          font_size = 20;
+          font_family = "JetBrains Mono Nerd Font Mono";
+          position = "0, -95";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+
+      # IMAGE blocks are collected into a list.
+      image = [
+        {
+          # Primary image block
+          monitor = "";
+          path = "/home/greed/.face";
+          size = 150;
+          rounding = -1; # negative for circular image
+          border_size = 4;
+          border_color = "rgb(221, 221, 221)";
+          rotate = 0;
+          reload_time = -1;
+          reload_cmd = "";
+          position = "0, 150";
+          halign = "center";
+          valign = "center";
+        }
+        {
+          # Music Album Art image block
+          monitor = "";
+          path = "$mpris_art"; # will use the value from the top-level key
+          size = 80;
+          rounding = 5;
+          rotate = 0;
+          reload_time = 0;
+          reload_cmd = "";
+          position = "-130, -310";
+          halign = "center";
+          valign = "center";
+          zindex = 5;
+        }
+      ];
     };
   };
 }

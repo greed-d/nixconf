@@ -1,7 +1,12 @@
-{ config, inputs, pkgs, lib, ... }:
-let
+{
+  config,
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: let
   pointer = config.home.pointerCursor;
-  makeCommand = command: { command = [ command ]; };
+  makeCommand = command: {command = [command];};
 in {
   programs.niri = {
     enable = true;
@@ -18,24 +23,25 @@ in {
         (makeCommand
           "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1")
         (makeCommand "hyprlock")
+        (makeCommand "xwayland-satellite")
         (makeCommand "swww-daemon")
         (makeCommand "swayosd-server")
       ];
       workspaces = {
-        "1" = { };
-        "2" = { };
-        "3" = { };
-        "4" = { };
-        "5" = { };
-        "6" = { };
-        "7" = { };
-        "8" = { };
-        "8" = { };
-        "9" = { };
-        "0" = { };
+        "1" = {};
+        "2" = {};
+        "3" = {};
+        "4" = {};
+        "5" = {};
+        "6" = {};
+        "7" = {};
+        "8" = {};
+        "8" = {};
+        "9" = {};
+        "0" = {};
       };
       input = {
-        keyboard = { xkb = { }; };
+        keyboard = {xkb = {};};
         touchpad = {
           tap = true;
           dwt = true;
@@ -45,6 +51,7 @@ in {
           enable = true;
           max-scroll-amount = "0%";
         };
+        workspace-auto-back-and-forth = true;
       };
 
       outputs = {
@@ -64,28 +71,28 @@ in {
         center-focused-column = "never";
 
         preset-column-widths = [
-          { proportion = 0.25; }
-          { proportion = 0.5; }
-          { proportion = 0.75; }
-          { proportion = 1.0; }
+          {proportion = 0.25;}
+          {proportion = 0.5;}
+          {proportion = 0.75;}
+          {proportion = 1.0;}
         ];
 
         preset-window-heights = [
-          { proportion = 0.2; }
-          { proportion = 0.4; }
-          { proportion = 0.5; }
-          { proportion = 0.6; }
-          { proportion = 0.8; }
+          {proportion = 0.2;}
+          {proportion = 0.4;}
+          {proportion = 0.5;}
+          {proportion = 0.6;}
+          {proportion = 0.8;}
         ];
 
-        default-column-width = { proportion = 0.5; };
+        default-column-width = {proportion = 0.5;};
 
         focus-ring = {
           enable = true;
           width = 2;
         };
 
-        border = { enable = false; };
+        border = {enable = false;};
 
         shadow = {
           enable = true;
