@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     shell = "${pkgs.fish}/bin/fish";
@@ -108,6 +108,21 @@
             repo = "tmux-online-status";
             rev = "82f4fbcaee7ece775f37cf7ed201f9d4beab76b8";
             sha256 = "sha256-vsR/OfcXK2YL4VmdVku3XxGbR5exgnbmlPVIQ2LnWBg=";
+          };
+          extraConfig = "";
+        };
+      }
+
+      {
+        plugin = pkgs.tmuxPlugins.mkTmuxPlugin {
+          pluginName = "tmux-battery";
+          rtpFilePath = "battery.tmux";
+          version = "master";
+          src = pkgs.fetchFromGitHub {
+            owner = "tmux-plugins";
+            repo = "tmux-battery";
+            rev = "48fae59ba4503cf345d25e4e66d79685aa3ceb75";
+            sha256 = "sha256-yKMTuRiNnGC3tAbZeWzMEudzhBSJhji8sZh96rFxpb8=";
           };
           extraConfig = "";
         };
