@@ -10,5 +10,7 @@
     ./bufferline.nix
     ./gitsigns.nix
     ./mini.nix
+    ./harpoon.nix
+    ./whichkey.nix
   ];
 }
