@@ -10,6 +10,7 @@
         };
         formatter_by_ft = {
           nix = ["alejandra"];
+          python = ["ruff"];
         };
         format_on_save = {
           lsp_format = "fallback";
