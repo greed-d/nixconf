@@ -1,7 +1,5 @@
 {
-  lib,
   pkgs,
-  config,
   inputs,
   ...
 }: let
@@ -117,7 +115,6 @@ in {
     wayland
     direnv
 
-    lazygit
     nwg-look
     bibata-cursors
     webkitgtk
