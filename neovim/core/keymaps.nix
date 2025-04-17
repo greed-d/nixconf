@@ -32,7 +32,7 @@ _: {
       silent = true;
     }
     {
-      mode = ["n" "x" "t"];
+      mode = ["n" "x"];
       key = "p";
       action = "p:let @\"=@0<CR>";
       silent = true;
