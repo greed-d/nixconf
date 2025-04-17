@@ -1,7 +1,7 @@
-{ ... } : {
-  vim = {
-    languages = { 
-      python.enable = true; 
-    };
+{
+  enable = true;
+  format = {
+    enable = true;
+    type = "ruff";
   };
 }
