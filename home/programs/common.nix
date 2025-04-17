@@ -1,10 +1,37 @@
-{ lib, pkgs, config, inputs, ... }: {
+{
+  lib,
+  pkgs,
+  config,
+  inputs,
+  ...
+}: let
+  waybarPrSource = pkgs.fetchFromGitHub {
+    owner = "Alexays";
+    repo = "Waybar";
+    rev = "9556bdabda987acb8bb8959cbfbe1e6f157cccf2";
+    sha256 = "sha256-LpPkmAUXJ1ZExnf4SEs/g9juTmS1s2mEvC5hi91/MHE=";
+  };
+
+  myWaybarFromPR =
+    pkgs.waybar.overrideAttrs (oldAttrs: {src = waybarPrSource;});
+in {
   home.packages = with pkgs; [
     # Aesthetic
+    myWaybarFromPR
     nitch
     cava
     fastfetch
     gparted
+    wf-recorder
+
+    # Explorer
+    xfce.thunar
+
+    #Change wallpaper colors
+    dipc
+
+    #Image Viewer
+    feh
 
     # archives
     zip
@@ -17,10 +44,16 @@
     jq # A lightweight and flexible command-line JSON processor
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
+    fd
+
+    #Launcher + OSD
     fuzzel
     swayosd
-    waybar
+
+    # Insert emoji easily
     wtype
+
+    #clipboard history
     cliphist
 
     # networking tools
@@ -41,6 +74,7 @@
     gawk
     zstd
     gnupg
+    swww
 
     # nix related
     #
@@ -89,8 +123,6 @@
     webkitgtk
     tmux
 
-    cliphist
-    wf-recorder
     obsidian
     vesktop
     gnome-keyring
@@ -98,7 +130,6 @@
     qbittorrent
     youtube-music
     swaynotificationcenter
-
   ];
 
   programs.starship = {
@@ -106,5 +137,12 @@
     enableFishIntegration = true;
     # enableFishIntegratoin = true;
   };
-
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     waybar = prev.waybar.overrideAttrs (oldAttrs: {
+  #       src = waybar-pr-src;
+  #       version = "${oldAttrs.version}-pr4001";
+  #     });
+  #   })
+  # ];
 }
