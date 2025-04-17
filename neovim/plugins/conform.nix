@@ -1,10 +1,21 @@
-{ ... } : { 
+{pkgs, ...}: {
   vim.formatter = {
     conform-nvim = {
-      enable = true; 
+      enable = true;
       setupOpts = {
-        nix = [ "alejandra" ];
+        formatters = {
+          alejandra = {
+            command = "${pkgs.alejandra}/bin/alejandra";
+          };
+        };
+        formatter_by_ft = {
+          nix = ["alejandra"];
+        };
+        format_on_save = {
+          lsp_format = "fallback";
+          timeout_ms = 500;
+        };
       };
-    }; 
-  }; 
+    };
+  };
 }

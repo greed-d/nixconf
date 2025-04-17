@@ -1,4 +1,4 @@
-{ ... } : {
+{...}: {
   vim.tabline.nvimBufferline = {
     enable = true;
     mappings = {
@@ -6,5 +6,8 @@
       cycleNext = "]b";
       cyclePrevious = "[b";
     };
-  }
+    setupOpts = {
+      options.separator_style = "padded_slant";
+    };
+  };
 }
