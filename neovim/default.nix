@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
-  imports = [ ./plugins ./lsp ];
+  imports = [ ./plugins ./lsp ./core ];
   config.vim = {
     theme = {
       enable = true;

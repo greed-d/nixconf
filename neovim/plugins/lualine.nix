@@ -1,2 +1,12 @@
-{ pkgs, lib, ... }: { vim = { statusline.lualine = { enable = true; }; }; }
+{ pkgs, lib, ... }: { 
+        vim = { 
+                statusline.lualine = {
+                        enable = true; 
+                        setupOpts = {
+                                dependencies = [];
+                        };
+
+                }; 
+        };
+}
 
