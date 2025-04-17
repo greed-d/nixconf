@@ -1,4 +1,4 @@
-{...}: {
+_: {
   vim = {
     lsp.formatOnSave = true;
     languages = {
@@ -16,8 +16,19 @@
       listImplementations = "gI";
       listReferences = "gr";
     };
-    diagnostics.config = {
-      virtual_text = true;
+    diagnostics = {
+      enable = true;
+      config = {
+        signs = {
+          text = {
+            "vim.diagnostic.severity.ERROR" = "󰅚 ";
+            "vim.diagnostic.severity.WARN" = "󰀪 ";
+            "vim.diagnostic.severity.HINT" = "󰛩 ";
+            "vim.diagnostic.severity.INFO" = " ";
+          };
+        };
+        virtual_text = true;
+      };
     };
   };
 }
