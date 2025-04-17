@@ -39,48 +39,53 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri = { url = "github:sodiboo/niri-flake"; };
-    waybar = { url = "github:hansp27/Waybar"; };
+    niri = {url = "github:sodiboo/niri-flake";};
+    waybar = {url = "github:hansp27/Waybar";};
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nvf, ... }: {
-    packages.x86_64-linux.my-neovim = (nvf.lib.neovimConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [
-        # IE: ./nvf_module.nix
-        ./neovim
-      ];
-    }).neovim;
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    nvf,
+    ...
+  }: {
+    packages.x86_64-linux.my-neovim =
+      (nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./neovim
+        ];
+      }).neovim;
 
     nixosConfigurations = {
       bael = let
         username = "greed";
-        specialArgs = { inherit username inputs; };
-      in nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/bael
-          # ./configuration.nix
-          # ./users/${username}/nixos.nix
-          {
-            # given the users in this list the right to specify additional substituters via:
-            #    1. `nixConfig.substituters` in `flake.nix`
-            nix.settings.trusted-users = [ "greed" ];
-          }
+        specialArgs = {inherit username inputs;};
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/bael
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            ({pkgs, ...}: {
+              environment.systemPackages = [self.packages.x86_64-linux.my-neovim];
+            })
 
-            home-manager.extraSpecialArgs = inputs // specialArgs;
-            home-manager.users.${username} = ./users/${username}/home.nix;
-          }
-        ];
+            {nix.settings.trusted-users = ["greed"];}
 
-      };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.extraSpecialArgs = inputs // specialArgs;
+              home-manager.users.${username} = ./users/${username}/home.nix;
+            }
+          ];
+        };
 
       #      bael = nixpkgs.lib.nixosSystem {
       #        system = "x86_64-linux";
@@ -88,7 +93,7 @@
       #        modules = [
       #        ./configuration.nix
       #
-      # home-manager.nixosModules.home-manager 
+      # home-manager.nixosModules.home-manager
       # {
       #   home-manager.useGlobalPkgs = true;
       #   home-manager.useUserPackages = true;
