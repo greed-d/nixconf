@@ -1,4 +1,5 @@
 _: {
+  programs.lazygit.enable = true;
   programs.lazygit.settings = {
     gui = {
       nerdFontsVersion = "3";
