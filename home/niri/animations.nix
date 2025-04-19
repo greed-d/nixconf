@@ -1,18 +1,18 @@
-{...}: {
+_: {
   programs.niri = {
     settings = {
       animations = {
         enable = true;
         window-open = {
           easing = {
-            duration-ms = 150;
+            duration-ms = 200;
             curve = "linear";
           };
         };
 
         window-close = {
           easing = {
-            duration-ms = 150;
+            duration-ms = 200;
             curve = "linear";
           };
         };
