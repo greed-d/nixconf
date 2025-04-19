@@ -28,7 +28,7 @@
     "Mod+Shift+Slash".action = show-hotkey-overlay;
 
     #Power Stuff
-    "Mod+Shift+Q".action = spawn "bash" "-c" "shutdown" "now";
+    "Mod+Shift+Q".action = spawn "bash" "-c" "shutdown now";
     # "Mod+Ctrl+Q".action = quit; # This errors
     "Mod+W".action.close-window = [];
     # "Mod+Alt+P".action = power-off-monitors; # This errors
