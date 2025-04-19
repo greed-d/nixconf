@@ -9,7 +9,7 @@
   myWaybarFromPR =
     pkgs.waybar.overrideAttrs (oldAttrs: {src = waybarPrSource;});
 in {
-  imports = [./style.nix ./config.nix];
+  imports = [./simple];
   programs.waybar = {
     package = myWaybarFromPR;
     enable = true;
