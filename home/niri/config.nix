@@ -1,8 +1,6 @@
 {
   config,
-  inputs,
   pkgs,
-  lib,
   ...
 }: let
   pointer = config.home.pointerCursor;
@@ -22,10 +20,10 @@ in {
       spawn-at-startup = [
         (makeCommand
           "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1")
-        (makeCommand "hyprlock")
         (makeCommand "xwayland-satellite")
         (makeCommand "swww-daemon")
         (makeCommand "swayosd-server")
+        (makeCommand "youtube-music")
       ];
       workspaces = {
         "1" = {};
