@@ -20,10 +20,13 @@ in {
     cava
     fastfetch
     gparted
+    power-profiles-daemon
     wf-recorder
+    font-awesome
 
     # Explorer
     xfce.thunar
+    nautilus
 
     #Change wallpaper colors
     dipc
@@ -97,6 +100,7 @@ in {
     ethtool
     pciutils # lspci
     usbutils # lsusb
+    prismlauncher
 
     #Applications
     vesktop
