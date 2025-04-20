@@ -12,5 +12,6 @@
     sourcePlugins = {
       ripgrep.package.enable = true;
     };
+    # setupOpts = ;
   };
 }
