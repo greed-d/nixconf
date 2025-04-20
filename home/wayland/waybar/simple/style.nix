@@ -2,12 +2,12 @@ _: {
   programs.waybar.style = ''
     * {
       /* `otf-font-awesome` is required to be installed for icons */
-      font-family: Material Design Icons, JetBrainsMono Nerd Font, Iosevka Nerd Font;
-      font-size: 19px;
+      font-family: Material Design Icons, Lexend, Iosevka Nerd Font;
+      font-size: 14px;
     }
 
     window#waybar {
-      background-color: rgba(26, 27, 38, 0.5);
+      background-color: rgba(26, 27, 38, 0.8);
       color: #ffffff;
       transition-property: background-color;
       transition-duration: 0.5s;
@@ -21,9 +21,11 @@ _: {
       color: #64727d;
     }
 
+    #mpris,
     #clock,
     #cpu,
     #memory,
+    #window,
     #custom-media,
     #tray,
     #mode,
@@ -49,39 +51,56 @@ _: {
       padding: 2px 10px;
       background-color: #252733;
       border-radius: 8px;
-      font-size: 18.5px;
+      font-size: 14px;
 
       margin-left: 4px;
       margin-right: 4px;
 
-      margin-top: 8.5px;
-      margin-bottom: 8.5px;
+    }
+
+    #window {
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+    #mpris {
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     #cpu {
       color: #fb958b;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     #memory {
       color: #a1c999;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
+
+    #workspaces {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+
 
     #workspaces button {
       color: #7a95c9;
-      box-shadow: inset 0 -3px transparent;
 
-      padding-right: 3px;
-      padding-left: 4px;
+      padding-right: 0px;
+      padding-left: 0px;
 
-      margin-left: 0.1em;
       margin-right: 0em;
       transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
     }
 
     #workspaces button.active {
       color: #ecd3a0;
+      font-size: 14px;
       padding-left: 1px;
-      padding-right: 12px;
+      padding-right: 1px;
       margin-left: 0em;
       margin-right: 0em;
       transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
@@ -103,7 +122,7 @@ _: {
       padding-right: 18px;
       padding-left: 14px;
 
-      font-size: 22px;
+      font-size: 14px;
 
       color: #7a95c9;
 
@@ -118,7 +137,7 @@ _: {
       background-color: #252733;
       padding: 0em 2em;
 
-      font-size: 20px;
+      font-size: 14px;
 
       padding-left: 7.5px;
       padding-right: 7.5px;
@@ -129,26 +148,28 @@ _: {
       margin-top: 7px;
       margin-bottom: 7px;
 
-      font-size: 20px;
+      font-size: 14px;
     }
 
     #pulseaudio {
       color: #81A1C1;
       padding-left: 9px;
-      font-size: 22px;
+      font-size: 14px;
+
+      border-radius: 8px 0px 0px 8px;
     }
 
     #pulseaudio.muted {
       color: #fb958b;
       padding-left: 9px;
-      font-size: 22px;
+      font-size: 14px;
     }
 
     #backlight {
       color: #8a909e;
       padding-right: 5px;
       padding-left: 8px;
-      font-size: 21.2px;
+      font-size: 16.2px;
     }
 
     #network {
@@ -157,7 +178,7 @@ _: {
       border-radius: 8px 0px 0px 8px;
       padding-left: 12px;
       padding-right: 14px;
-      font-size: 20px;
+      font-size: 16px;
     }
 
     #network.disconnected {
@@ -168,7 +189,7 @@ _: {
       color: #8fbcbb;
       border-radius: 0px 8px 8px 0px;
       padding-right: 2px;
-      font-size: 22px;
+      font-size: 16px;
     }
 
     #battery.critical,
@@ -178,18 +199,18 @@ _: {
       color: #8fbcbb;
       padding-left: 6px;
       padding-right: 12px;
-      font-size: 22px;
+      font-size: 16px;
     }
 
     #battery.charging {
-      font-size: 18px;
+      font-size: 16px;
       padding-right: 13px;
       padding-left: 4px;
     }
 
     #battery.full,
     #battery.plugged {
-      font-size: 22.5px;
+      font-size: 16px;
       padding-right: 10px;
     }
 
@@ -212,16 +233,15 @@ _: {
       color: #ecd3a0;
       padding: 0 15px 0 15px;
       margin-left: 7px;
-      margin-top: 7px;
-      margin-bottom: 7px;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     #clock {
       color: #8a909e;
-      font-family: Iosevka Nerd Font;
       font-weight: bold;
-      margin-top: 7px;
-      margin-bottom: 7px;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     #custom-power-menu {
@@ -253,7 +273,7 @@ _: {
       margin-right: 8px;
       margin-top: 7px;
       margin-bottom: 7px;
-      font-size: 30px;
+      font-size: 24px;
     }
 
     #tray > .passive {
@@ -279,9 +299,11 @@ _: {
     }
 
     #custom-weather {
-      font-family: Iosevka Nerd Font;
-      font-size: 19px;
+      font-family: Lexend;
+      font-size: 15px;
       color: #8a909e;
+      margin-top: 7px;
+      margin-bottom: 7px;
     }
 
     #custom-weather.severe {
