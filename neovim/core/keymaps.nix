@@ -9,6 +9,12 @@ _: {
     }
     {
       mode = "n";
+      key = "<Esc>";
+      action = ":noh<CR>";
+      desc = "Remove highlight";
+    }
+    {
+      mode = "n";
       key = "<A-k>";
       action = "<cmd>m .-2<cr>==";
       desc = "Move Up";
