@@ -42,12 +42,14 @@
     niri = {url = "github:sodiboo/niri-flake";};
     waybar = {url = "github:hansp27/Waybar";};
     nvf.url = "github:notashelf/nvf";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    nixCats,
     nvf,
     ...
   }: {
