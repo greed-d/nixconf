@@ -30,6 +30,7 @@
       lexend
       noto-fonts-emoji
       nerd-fonts.jetbrains-mono
+      nerd-fonts.commit-mono
       adwaita-fonts
     ];
 
@@ -61,6 +62,8 @@
     polkit_gnome
     networkmanagerapplet
     libnotify
+    gvfs
+    nix-search-tv
   ];
 
   environment.variables = {EDITOR = "nvim";};

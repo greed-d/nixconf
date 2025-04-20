@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "japanese_aesthetic";
-    themeConfig = {background = toString /home/greed/ricing3.png;};
+    themeConfig = {background = toString /etc/wallpapers/ricing3.png;};
   };
 in {
   services.displayManager.sddm = {
