@@ -2,20 +2,9 @@
   pkgs,
   inputs,
   ...
-}: let
-  waybarPrSource = pkgs.fetchFromGitHub {
-    owner = "Alexays";
-    repo = "Waybar";
-    rev = "9556bdabda987acb8bb8959cbfbe1e6f157cccf2";
-    sha256 = "sha256-LpPkmAUXJ1ZExnf4SEs/g9juTmS1s2mEvC5hi91/MHE=";
-  };
-
-  myWaybarFromPR =
-    pkgs.waybar.overrideAttrs (oldAttrs: {src = waybarPrSource;});
-in {
+}: {
   home.packages = with pkgs; [
     # Aesthetic
-    myWaybarFromPR
     nitch
     cava
     fastfetch
@@ -23,6 +12,8 @@ in {
     power-profiles-daemon
     wf-recorder
     font-awesome
+    mpv
+    rofi-wayland-unwrapped
 
     # Explorer
     xfce.thunar
@@ -46,6 +37,7 @@ in {
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
     fd
+    hypridle
 
     #Launcher + OSD
     fuzzel
@@ -66,6 +58,7 @@ in {
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
+    cloudflare-warp # Secure connection
 
     # misc
     which
@@ -131,6 +124,10 @@ in {
     qbittorrent
     youtube-music
     swaynotificationcenter
+
+    (tela-circle-icon-theme.override {
+      colorVariants = ["dracula"];
+    })
   ];
 
   programs.starship = {
