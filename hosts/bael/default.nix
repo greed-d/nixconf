@@ -1,8 +1,4 @@
-{
-  configs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Add hw conf
     ./hardware-configuration.nix
