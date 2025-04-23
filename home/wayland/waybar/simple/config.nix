@@ -134,8 +134,8 @@
           "format" = "{icon}";
           "tooltip-format" = "{percent}";
           "format-icons" = ["󱩎 " "󱩏 " "󱩐 " "󱩑 " "󱩒 " "󱩓 " "󱩔 " "󱩕 " "󱩖 " "󰛨 "];
-          "on-scroll-up" = "swayosd-client --brightness +1";
-          "on-scroll-down" = "swayosd-client --brightness -1";
+          "on-scroll-up" = "swayosd-client --brightness +5";
+          "on-scroll-down" = "swayosd-client --brightness -5";
         };
 
         network = {
@@ -157,7 +157,7 @@
           "on-click" = "swayosd-client --output-volume mute-toggle";
           "on-scroll-up" = "swayosd-client --output-volume +1";
           "on-scroll-down" = "swayosd-client --output-volume -1";
-	  "tooltip-format" = "{volume}%";
+          "tooltip-format" = "{volume}%";
         };
 
         battery = {
