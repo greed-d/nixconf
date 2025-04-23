@@ -13,7 +13,6 @@
     wf-recorder
     font-awesome
     mpv
-    rofi-wayland-unwrapped
 
     # Explorer
     xfce.thunar
@@ -24,6 +23,7 @@
 
     #Image Viewer
     feh
+    google-chrome
 
     # archives
     zip

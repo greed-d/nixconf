@@ -15,8 +15,8 @@
     };
     iconTheme = {
       # package = "${pkgs.callPackage ./suru-gtk.nix {inherit pkgs;}}";
-      package = pkgs.tela-icon-theme;
-      name = "Tela-icon-theme";
+      package = pkgs.tela-circle-icon-theme;
+      name = "Tela circle dracula dark";
     };
   };
 }
